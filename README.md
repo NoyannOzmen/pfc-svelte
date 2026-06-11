@@ -1,42 +1,34 @@
-# sv
+# Pet Foster Connect
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+<img src="./src/lib/assets/icons/logo.svg" alt="Logo de PetFosterConnect" width="300"/>
 
-## Creating a project
+## Disclaimer
 
-If you're seeing this, you've probably already done this step. Congrats!
+Ce dépôt contient une itération du projet PetFosterConnect réalisée grâce au framework full-stack SvelteKit, tout en préservant ses fonctionnalités.
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Présentation
 
-To recreate this project with the same configuration:
+Pet Foster Connect permet de mettre en relation des familles d’accueil pour les animaux avec des associations de protection animale.
 
-```sh
-# recreate this project
-npx sv@0.16.1 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:none" --install npm pfc-svelte
-```
+PFC permet aux gens de jouer un rôle fondamental en accueillant des animaux en attendant leur adoption définitive afin de leur offrir une meilleure vie.
 
-## Developing
+PFC a pour vocation de répondre à plusieurs besoins :
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Les animaux aimeraient bien un toit, et les gens aiment les animaux (en général)
+- Permettre aux associations / refuges de communiquer sur les animaux nécessitant une place au chaud
+- Permettre aux familles d'accueil de se faire connaître et de se mettre en relation avec les refuges / associations
 
-```sh
-npm run dev
+## Technologies utilisées
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Pour réaliser cette application, nous nous sommes servis de :
 
-## Building
+|   **Nom**      |     **Fonction**   |
+| -------------- | ----------------- |
+| SvelteKit | Framework |
+| TypeScript | Langage |
+| Tailwind | CSS |
+| Prisma | ORM |
 
-To create a production version of your app:
+## Installation
 
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Bientôt disponible
