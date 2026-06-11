@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client"
+  output   = "src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model animal {
+  id             Int          @id @default(autoincrement())
+  nom            String
+  race           String?
+  couleur        String
+  age            Int
+  sexe           sexe
+  description    String
+  statut         statut
+  association_id Int
+  famille_id     Int?
+  espece_id      Int
+  refuge         association  @relation(fields: [association_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  espece         espece       @relation(fields: [espece_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  accueillant    famille?     @relation(fields: [famille_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  animal_tag     animal_tag[]
+  demande        demande[]
+  images_animal  media[]
+}
+
+model animal_tag {
+  id        Int    @id @default(autoincrement())
+  animal_id Int
+  tag_id    Int
+  animal    animal @relation(fields: [animal_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tag       tag    @relation(fields: [tag_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model association {
+  id                  Int         @id @default(autoincrement())
+  nom                 String
+  responsable         String
+  rue                 String
+  commune             String
+  code_postal         String
+  pays                String
+  siret               String
+  telephone           String
+  site                String?
+  description         String?
+  utilisateur_id      Int         @unique
+  animal              animal[]
+  utilisateur         utilisateur @relation(fields: [utilisateur_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  images_association  media[]
+}
+
+model demande {
+  id             Int            @id @default(autoincrement())
+  famille_id     Int
+  animal_id      Int
+  statut_demande statut_demande
+  date_debut     DateTime       @db.Date
+  date_fin       DateTime       @db.Date
+  animal         animal         @relation(fields: [animal_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  famille        famille        @relation(fields: [famille_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model espece {
+  id     Int      @id @default(autoincrement())
+  nom    String
+  animal animal[]
+}
+
+model famille {
+  id             Int         @id @default(autoincrement())
+  prenom         String?
+  nom            String
+  telephone      String
+  rue            String
+  commune        String
+  code_postal    String
+  pays           String
+  hebergement    String
+  terrain        String?
+  utilisateur_id Int         @unique
+  animal         animal[]
+  demande        demande[]
+  utilisateur    utilisateur @relation(fields: [utilisateur_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model media {
+  id             Int          @id @default(autoincrement())
+  url            String
+  ordre          Int?
+  animal_id      Int?
+  association_id Int?
+  animal         animal?      @relation(fields: [animal_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  association    association? @relation(fields: [association_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model tag {
+  id          Int          @id @default(autoincrement())
+  nom         String
+  description String
+  animal_tag  animal_tag[]
+}
+
+model utilisateur {
+  id           Int          @id @default(autoincrement())
+  email        String       @unique
+  mot_de_passe String
+  association  association?
+  famille      famille?
+}
+
+enum sexe {
+  Male    @map("Mâle")
+  Femelle
+  Inconnu
+}
+
+enum statut {
+  En_refuge @map("En refuge")
+  Accueilli
+  Adopte    @map("Adopté")
+}
+
+enum statut_demande {
+  En_attente @map("En attente")
+  Validee    @map("Validée")
+  Refusee    @map("Refusée")
+}
