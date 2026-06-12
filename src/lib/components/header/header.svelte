@@ -48,7 +48,7 @@
       <HeaderNav />
 
       <nav class="flex flex-row flex-auto justify-center p-3 gap-2">
-        <a href="/" class="" tabIndex="-1" aria-label="Facebook link">
+        <a href="/" class="" tabindex="-1" aria-label="Facebook link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -68,7 +68,7 @@
           </svg>
         </a>
 
-        <a href="/" class="" tabIndex="-1" aria-label="Instagram link">
+        <a href="/" class="" tabindex="-1" aria-label="Instagram link">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -93,27 +93,27 @@
     >
       <ul class="flex flex-auto flex-col md:flex-row md:place-content-end md:gap-5 pl-4 gap-2">
         <li class="hover:text-accents1-light place-self-start item-link">
-          <a tabIndex="0" href="/animaux" onclick={closeMenu} onkeydown={closeMenu}>
+          <a tabindex="0" href="/animaux" onclick={closeMenu} onkeydown={closeMenu}>
             Nos Animaux
           </a>
         </li>
         <li class="hover:text-accents1-light place-self-start item-link">
-          <a tabIndex="0" href="/associations" onclick={closeMenu} onkeydown={closeMenu}>
+          <a tabindex="0" href="/associations" onclick={closeMenu} onkeydown={closeMenu}>
             Nos Partenaires
           </a>
         </li>
         <li class="hover:text-accents1-light place-self-start item-link">
-          <a tabIndex="0" href="/a-propos" onclick={closeMenu} onkeydown={closeMenu}>
+          <a tabindex="0" href="/a-propos" onclick={closeMenu} onkeydown={closeMenu}>
             Qui sommes&#x2011;nous&nbsp;?
           </a>
         </li>
         <li class="hover:text-accents1-light place-self-start item-link">
-          <a tabIndex="0" href="/faq"onclick={closeMenu} onkeydown={closeMenu}>
+          <a tabindex="0" href="/faq"onclick={closeMenu} onkeydown={closeMenu}>
             Foire aux Questions
           </a>
         </li>
         <li class="hover:text-accents1-light place-self-start item-link">
-          <a tabIndex="0" href="/devenir-famille-d-accueil"onclick={closeMenu} onkeydown={closeMenu}>
+          <a tabindex="0" href="/devenir-famille-d-accueil"onclick={closeMenu} onkeydown={closeMenu}>
             Devenez Famille&nbsp;d'accueil
           </a>
         </li>

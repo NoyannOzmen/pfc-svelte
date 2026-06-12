@@ -1,15 +1,14 @@
 <script lang='ts'>
   let { shelter = $bindable() } = $props();
-  const url = shelter.images_association[0].url;
   import shelterEmpty from '$lib/assets/images/shelter_empty.webp'; 
 </script>
 
 <div class="bg-zoning rounded-lg shadow flex flex-col">
   <div class="relative md:w-full flex justify-center items-center">
-    {#if url}
+    {#if shelter.images_association.length}
       <img
         class="font-body rounded-lg"
-        src={`./src/lib/assets/${url}`}
+        src={`./src/lib/assets/${shelter.images_association[0].url}`}
         alt={`Logo de ${shelter.nom}`}
       />
     {:else}

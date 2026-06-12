@@ -6,16 +6,12 @@
   --color-fond: #fffbe4;
   --color-zoning: #d5edb7;
   --color-texte: #382821;
-  --color-accents1: {
-      light: #ff7438,
-      DEFAULT: #dd4302,
-      dark: #b83700,
-  };
-  --color-accents2: {
-      light: '#a0bc7d',
-      DEFAULT: '#758a5a',
-      dark: '#536140',
-  };
+  --color-accents1: #dd4302;
+  --color-accents1-dark: #b83700;
+  --color-accents1-light: #ff7438;
+  --color-accents2: #758a5a;
+  --color-accents2-dark: #536140;
+  --color-accents2-light: #a0bc7d;
   --font-sm: 0.8rem;
   --font-base: 1rem;
   --font-xl: 1.25rem;

@@ -13,7 +13,6 @@
   <div class="font-body mx-auto w-[80%] md:w-[60%] bg-zoning rounded-lg shadow">
     <form
       class="flex flex-col flex-wrap justify-around text-texte"
-      // onSubmit={handleSubmit}
     >
       <div class="mx-auto p-2 w-[60%]">
         <label class="text-center" for="email">
@@ -53,9 +52,9 @@
     </form>
 
     <!-- 
-    {#if auth.userMessage}
+    {#if form?.message}
       <div>
-        <p class="font-grands font-base text-accents1 text-center">{auth.userMessage}</p>
+        <p class="font-grands font-base text-accents1 text-center">{form.message}</p>
       </div>
     {/if}
     -->

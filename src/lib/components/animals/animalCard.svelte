@@ -1,16 +1,14 @@
 <script lang='ts'>
   import animalEmpty from '$lib/assets/images/animal_empty.webp';
   let { animal = $bindable() } = $props();
-  const url = animal.images_animal[0].url;
-
 </script>
 
 <div class="bg-zoning rounded-lg shadow md:flex-col">
   <div class="relative md:w-full flex justify-center items-center">
-    {#if url}
+    {#if animal.images_animal.length}
       <img
         class="font-body rounded-lg"
-        src={`./src/lib/assets/${url}`}
+        src={`./src/lib/assets/${animal.images_animal[0].urlrl}`}
         alt={`Photo de ${animal.nom}`}
       />
     {:else}

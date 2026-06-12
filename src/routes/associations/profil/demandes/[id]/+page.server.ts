@@ -1,0 +1,54 @@
+import prisma from "$lib/prisma";
+
+export async function load({params}) {
+  const id = Number(params.id);
+  const request = await prisma.demande.findUniqueOrThrow({
+    where: { id : id },
+		include: {
+			animal: {
+        include: {
+          espece: true,
+          refuge: true,
+          images_animal: true,
+          animal_tag: {
+            include: {
+              tag: true
+            }
+          }
+        }
+      },
+			famille: true
+		}
+	});
+  return {
+    request
+  };
+}
+
+export const actions = {
+  accept: async({params}) => {
+    const requestId = Number(params.id);
+
+    const accepted = await prisma.demande.update({
+      where : { id : requestId},
+      data: {
+        statut_demande : "Validee",
+      }
+      
+    });
+
+    console.log(accepted);
+  },
+  deny: async({params}) => {
+    const requestId = Number(params.id);
+    
+    const denied = await prisma.demande.update({
+      where : { id : requestId},
+      data : {
+        statut_demande : "Refusee"
+      }
+    });
+
+    console.log(denied);
+  }
+}

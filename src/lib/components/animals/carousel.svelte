@@ -7,8 +7,6 @@
   let { data = $bindable(), animalId = $bindable(), shelterId = $bindable()} = $props();
   let animals = [...data];
 
-  // Just in case
-  // let sheltered = data.animals?.filter(({ statut }) => statut === 'En refuge');
   let sheltered = $derived(animals.filter(({ statut }) => statut === 'En_refuge'));
 
   if (shelterId) {
@@ -75,7 +73,7 @@
     type="button"
     id="previous3"
     aria-label="Précédent"
-    tabIndex="0"
+    tabindex="0"
     onclick={innerWidth < 768 ? getOnePreviousPic : getThreePreviousPic}
     onkeydown={innerWidth < 768 ? getOnePreviousPic : getThreePreviousPic}
   >
@@ -97,7 +95,7 @@
       >
         <div class="flex bg-fond rounded-lg shadow flex-row md:flex-col p-4">
           <div class="w-full md:w-full flex justify-center items-center">
-            {#if animal.images_animal}
+            {#if animal.images_animal.length}
               <img
                 class="object-contain w-[80%] h-48 md:h-full rounded-lg"
                 src={`./src/lib/assets/${animal.images_animal[0].url}`}
@@ -146,7 +144,7 @@
     type="button"
     id="next3"
     aria-label="Suivant"
-    tabIndex="0"
+    tabindex="0"
     onclick={innerWidth < 768 ? getOneNextPic : getThreeNextPic}
     onkeydown={innerWidth <768 ? getOneNextPic : getThreeNextPic}
   >

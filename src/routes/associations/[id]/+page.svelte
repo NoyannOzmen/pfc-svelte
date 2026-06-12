@@ -1,25 +1,25 @@
 <script lang='ts'>
 	import Carousel from '$lib/components/animals/carousel.svelte';
-  let { data = $bindable() } = $props();
-  const shelterUrl = data.shelter.images_association[0].url;
   import shelterEmpty from '$lib/assets/images/shelter_empty.webp'; 
+  let { data = $bindable() } = $props();
+  let shelter = $derived(data.shelter);
 </script>
 
 <section class="flex flex-col mx-auto mt-2">
-  <h2 class="font-grands text-2xl md:text-3xl text-center w-full my-6">{data.shelter.nom}</h2>
+  <h2 class="font-grands text-2xl md:text-3xl text-center w-full my-6">{shelter.nom}</h2>
 
   <div class="font-body mx-auto w-[80%] rounded-lg my-1 justify-center flex">
-    {#if shelterUrl}
+    {#if shelter.images_association.length}
       <img
         class="rounded-lg"
-        src={`../src/lib/assets/${shelterUrl}`}
-        alt={`Logo de ${data.shelter.nom}`}
+        src={`../src/lib/assets/${shelter.images_association[0].url}`}
+        alt={`Logo de ${shelter.nom}`}
       />
     {:else}
       <img
         class="rounded-lg"
         src={shelterEmpty}
-        alt={`Logo de ${data.shelter.nom} bientôt visible`}
+        alt={`Logo de ${shelter.nom} bientôt visible`}
       />
     {/if}
   </div>
@@ -41,20 +41,20 @@
 
     <div class="w-full px-2 py-4 gap-2 text-xs flex flex-col">
       <p class="font-body text-texte text-center md:text-base">
-        Adresse : {data.shelter.rue},&nbsp;{data.shelter.code_postal},&nbsp;{data.shelter.commune},&nbsp;
-        {data.shelter.pays}
+        Adresse : {shelter.rue},&nbsp;{shelter.code_postal},&nbsp;{shelter.commune},&nbsp;
+        {shelter.pays}
       </p>
       <p class="font-body text-texte text-center md:text-base">
-        Téléphone : {data.shelter.telephone}
+        Téléphone : {shelter.telephone}
       </p>
-      {#if data.shelter.site}
+      {#if shelter.site}
         <p class="font-body text-texte text-center md:text-base">
-          E-mail : {data.shelter.site}
+          E-mail : {shelter.site}
         </p>
       {/if}
-      {#if data.shelter.description}
+      {#if shelter.description}
         <p class="font-body text-texte text-center md:text-base">
-          E-mail : {data.shelter.description}
+          E-mail : {shelter.description}
         </p>
       {/if}
     </div>
@@ -63,10 +63,10 @@
 
 <section class="p-2 block">
   <h2 class="font-grands text-xl text-center my-2 md:md:text-2xl">
-    Ils vous attendent de patte ferme chez {data.shelter.nom} !
+    Ils vous attendent de patte ferme chez {shelter.nom} !
   </h2>
   <Carousel 
-    data={data.shelter.animal}
-    shelterId={data.shelter.id}
+    data={shelter.animal}
+    shelterId={shelter.id}
   />
 </section>

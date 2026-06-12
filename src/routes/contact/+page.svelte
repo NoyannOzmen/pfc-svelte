@@ -27,7 +27,6 @@
 
     <form
       class="flex flex-col flex-wrap justify-around text-texte"
-      /* onSubmit={} */
     >
       <div class="mx-auto w-[60%] p-2">
         <label class="text-center" for="prenom">

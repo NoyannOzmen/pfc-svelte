@@ -16,7 +16,7 @@
       </div>
 
       <div class="mx-auto p-2 w-[60%]">
-        <a href="/association/inscription">
+        <a href="/associations/inscription">
           <button
             class="w-full mx-auto my-3 py-2 px-4 bg-accents2-dark text-fond transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
             type="button"

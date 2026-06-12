@@ -4,8 +4,8 @@
   let { data = $bindable()} = $props();
 
   // Displays only shelters with animals up for adoption
-  // Deactived for now, since there would be only one
-  /* let shelters = $state(shelters.filter(({ pensionnaires }) => pensionnaires.some(({ statut }) => statut === "En refuge"))) */
+  // Deactivated for now, since there would be only one
+  /* let shelters = $state(data.shelters.filter(({ pensionnaires }) => pensionnaires.some(({ statut }) => statut === "En refuge"))) */
 
   let shelters = $state(data.shelters);
   let filtered =  $derived(shelters);
@@ -117,7 +117,7 @@
       </h2>
       <label for="dpt-select-small">Par département</label>
       <select
-        tabIndex="0"
+        tabindex="0"
         class="col-span-3 text-xs block w-[50%] bg-fond"
         id="dpt-select-small"
         name="dptSelectSmall"
@@ -126,7 +126,7 @@
         <DptSelect />
       </select>
       <input
-        tabIndex="0"
+        tabindex="0"
         onclick={deploySearch}
         id="deploy"
         class="w-[20%] col-span-1 my-1 py-2 px-2 bg-accents2-dark text-fond transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
@@ -134,7 +134,7 @@
         value="Filtres"
       />
       <input
-        tabIndex="0"
+        tabindex="0"
         onclick={filterResultsSmall}
         class="w-1/3 col-span-1 mx-auto my-3 py-2 px-2 bg-accents1-light text-fond transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
         type="button"
@@ -142,7 +142,7 @@
       />
       <div class="w-full mx-auto flex justify-center">
         <input
-          tabIndex="0"
+          tabindex="0"
           onclick={resetSearch}
           class="w-[20%] self-center col-span-3 my-1 py-2 px-2 bg-accents2-dark text-fond transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
           type="button"
@@ -191,7 +191,7 @@
         <fieldset class="mx-auto p-2 my-2">
           <label for="dpt-select-full">Département</label>
           <select
-            tabIndex="0"
+            tabindex="0"
             class="text-xs block bg-fond"
             id="dpt-select-full"
             name="dptSelectFull"
@@ -203,14 +203,14 @@
       </div>
 
       <input
-        tabIndex="0"
+        tabindex="0"
         onclick={filterResultsFull}
         class="col-span-3 w-[60%] mx-auto my-3 py-2 px-4 bg-accents1-light text-fond transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
         type="submit"
         value="Rechercher"
       />
       <input
-        tabIndex="0"
+        tabindex="0"
         onclick={resetSearch}
         class="col-span-3 w-[40%] mx-auto my-3 py-2 px-4 bg-accents2-dark text-fond transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
         type="button"

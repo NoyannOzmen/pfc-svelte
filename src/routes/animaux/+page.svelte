@@ -142,7 +142,7 @@
       <h2 class="font-grands text-2xl w-full my-2 text-center">Rechercher un animal</h2>
       <label for="espece-dropdown-small">Par espèce</label>
       <select
-        tabIndex="0"
+        tabindex="0"
         class="col-span-3 text-xs block w-[50%] bg-fond"
         id="espece-dropdown-small"
         name="especeDropdownSmall"
@@ -158,7 +158,7 @@
         {/each}
       </select>
       <input
-        tabIndex="0"
+        tabindex="0"
         onclick={deploySearch}
         id="deploy"
         class="w-[20%] col-span-1 my-1 py-2 px-2 bg-accents2-dark text-fond transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
@@ -166,7 +166,7 @@
         value="Filtres"
       />
       <input
-        tabIndex="0"
+        tabindex="0"
         onclick={filterResultsSmall}
         class="w-1/3 col-span-1 mx-auto my-3 py-2 px-2 bg-accents1-light text-fond transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
         type="button"
@@ -174,7 +174,7 @@
       />
       <div class="w-full mx-auto flex justify-center">
         <input
-          tabIndex="0"
+          tabindex="0"
           onclick={resetSearch}
           class="w-[20%] self-center col-span-3 my-1 py-2 px-2 bg-accents2-dark text-fond transition ease-in duration-200 text-center text-xs font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
           type="button"
@@ -193,7 +193,7 @@
         <div class="my-2">
           <label for="espece-dropdown-full">Espèce</label>
           <select
-            tabIndex="0"
+            tabindex="0"
             class="text-xs block bg-fond"
             id="espece-dropdown-full"
             name="especeDropdownFull"
@@ -231,9 +231,9 @@
         <div class="my-2 flex flex-row">
           <p>Age :</p>
           <label for="age-min">De&nbsp;</label>
-          <input id="age-min" class="bg-fond" name="minAge" type="number" tabIndex="0" min="0" max="3999" />
+          <input id="age-min" class="bg-fond" name="minAge" type="number" tabindex="0" min="0" max="3999" />
           <label for="age-max">&nbsp;à&nbsp;</label>
-          <input id="age-max" class="bg-fond" name="maxAge" type="number" tabIndex="0" min="1" max="4000" />
+          <input id="age-max" class="bg-fond" name="maxAge" type="number" tabindex="0" min="1" max="4000" />
           <p>&nbsp;ans.</p>
         </div>
       </div>
@@ -252,7 +252,7 @@
         <div class="my-2">
           <label for="dpt-select">Département</label>
           <select
-            tabIndex="0"
+            tabindex="0"
             class="text-xs block bg-fond"
             id="dpt-select"
             name="dptSelect"
@@ -264,14 +264,14 @@
       </div>
 
       <input
-        tabIndex="0"
+        tabindex="0"
         onclick={filterResultsFull}
         class="col-span-3 w-[60%] mx-auto my-3 py-2 px-4 bg-accents1-light text-fond transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
         type="button"
         value="Rechercher"
       />
       <input
-        tabIndex="0"
+        tabindex="0"
         onclick={resetSearch}
         class="col-span-3 w-[40%] mx-auto my-3 py-2 px-4 bg-accents2-dark text-fond transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
         type="button"

@@ -1,3 +1,6 @@
+// Type definitions
+// Might be useful
+
 export interface IMedia {
   id: string;
   url: string;
