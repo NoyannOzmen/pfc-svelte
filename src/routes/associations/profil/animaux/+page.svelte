@@ -74,7 +74,7 @@
     }
   }
 
-  function handleFilters(event) {
+  function handleFilters(event: MouseEvent | KeyboardEvent) {
     const filterTarget = event.target as HTMLInputElement;
     if (filterTarget.classList.contains('species-checkbox')) {
       const allSpeciesCheckbox = document.getElementById('espece_all') as HTMLInputElement;
@@ -296,10 +296,10 @@
             class="animal_card animal_card--visible flex flex-col justify-between content-center relative bg-fond rounded-xl w-36 h-36 shrink-0 md:size-60"
             href={`/associations/profil/animaux/${animal.id}`}
           >
-            {#if animal.images_animal.length}
+            {#if animal.images_animal && animal.images_animal.length}
               <img
                 class="rounded-t-xl"
-                src={`./src/lib/assets/${animal.images_animal[0].url}`}
+                src={`../../src/lib/assets/${animal.images_animal[0].url}`}
                 alt={`Photo de ${animal.nom}`}
               />
             {:else}

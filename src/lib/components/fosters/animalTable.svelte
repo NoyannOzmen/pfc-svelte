@@ -2,7 +2,8 @@
  let { animal } = $props();
 
  function handleClick(e: MouseEvent) {
-    const fold = e.currentTarget?.nextElementSibling;
+    const row = e.currentTarget as HTMLTableRowElement;
+    const fold = row.nextElementSibling;
     fold?.classList.toggle('hidden');
 
     const content = fold?.nextElementSibling;

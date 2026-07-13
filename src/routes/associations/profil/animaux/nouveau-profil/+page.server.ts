@@ -1,10 +1,15 @@
 import prisma from "$lib/prisma";
-import { fail, /* redirect */ } from "@sveltejs/kit";
+import { fail, redirect } from "@sveltejs/kit";
 import type { sexe } from "../../../../../../prisma/src/generated/prisma/enums.js";
 //TODO Correct this horrendous path
 
-export async function load() {
+export async function load({locals}) {
+	if (!locals.user?.association|| !locals.user) {
+			throw redirect(302, "/");
+	}
+
 	const species = await prisma.espece.findMany({});
+
 	const tags = await prisma.tag.findMany({});
   return {
 		species,
@@ -13,12 +18,14 @@ export async function load() {
 }
 
 export const actions = {
-  createAnimal: async( {request}) => {
-		// Harcoded for now
-		const shelterId = 1;
+  createAnimal: async( {request, locals}) => {
+		if(!locals.user?.association.id) {
+			return fail(400, {incorrect: true});
+		}
+		const shelterId = locals.user.association.id;
+
     const data = await request.formData();
 
-		//TODO Leanify names
     const nom_animal = data.get("nom_animal");
 		const sexe_animal = data.get("sexe_animal");
 		const age_animal = data.get("age_animal");

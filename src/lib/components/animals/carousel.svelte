@@ -8,19 +8,22 @@
   let animals = [...data];
 
   let sheltered = $derived(animals.filter(({ statut }) => statut === 'En_refuge'));
+  let source = $state('./src/lib/assets/');
 
   if (shelterId) {
-    sheltered = sheltered.filter(
-      ({ association_id }) => Number(association_id) === Number(shelterId)
+    sheltered = animals.filter(
+      ({ statut, association_id }) => statut  === "En_refuge" && Number(association_id) === Number(shelterId)
     );
+    source = '../../src/lib/assets';
   }
 
   if (animalId) {
-    const baseline = sheltered.find(({ id }) => Number(id) === Number(animalId));
+    const baseline = animals.find(({ id }) => Number(id) === Number(animalId));
 
-    sheltered = sheltered.filter(
-      ({ association_id }) => Number(association_id) === Number(baseline?.association_id)
+    sheltered = animals.filter(
+      ({ statut, association_id })  => statut  === "En_refuge" && Number(association_id) === Number(baseline?.association_id)
     );
+    source = '../../src/lib/assets';
   }
 
   let i = 0;
@@ -95,10 +98,10 @@
       >
         <div class="flex bg-fond rounded-lg shadow flex-row md:flex-col p-4">
           <div class="w-full md:w-full flex justify-center items-center">
-            {#if animal.images_animal.length}
+            {#if animal.images_animal && animal.images_animal.length }
               <img
                 class="object-contain w-[80%] h-48 md:h-full rounded-lg"
-                src={`./src/lib/assets/${animal.images_animal[0].url}`}
+                src={`${source}` + `${animal.images_animal[0].url}`}
                 alt={`Photo de ${animal.nom}`}
               />
             {:else}

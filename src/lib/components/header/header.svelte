@@ -18,6 +18,7 @@
   }
 
   import logo from '$lib/assets/icons/logo.svg'
+  let { user = $bindable() } = $props();
 
 </script>
 
@@ -45,7 +46,7 @@
     id="nav-links"
   >
     <div class="flex flex-auto flex-col place-self-center w-full md:w-156.25 md:flex-row-reverse md:absolute md:top-0 md:right-0">
-      <HeaderNav />
+      <HeaderNav user={user} />
 
       <nav class="flex flex-row flex-auto justify-center p-3 gap-2">
         <a href="/" class="" tabindex="-1" aria-label="Facebook link">

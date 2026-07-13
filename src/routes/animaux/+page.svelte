@@ -10,8 +10,8 @@
   let sexe: string | undefined = $state();
   let tag : string[] = [];
 
-  function handleCheck(e) {
-    const { value, checked } = e.target;
+  function handleCheck(e: Event) {
+    const { value, checked } = e.target as HTMLInputElement;
     if (checked) {
       tag = [...tag, value];
     } else {

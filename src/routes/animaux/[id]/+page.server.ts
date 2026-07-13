@@ -1,6 +1,9 @@
 import prisma from "$lib/prisma";
+import { fail } from "@sveltejs/kit";
 
-export async function load({params}) {
+export async function load({params, locals}) {
+  const user = locals.user;
+
   const id = Number(params.id);
   const animal = await prisma.animal.findUniqueOrThrow({
     where: { id : id },
@@ -11,7 +14,8 @@ export async function load({params}) {
           animal: {
             include: {
               espece: true,
-              refuge: true
+              refuge: true,
+              images_animal: true,
             }
           }
         }
@@ -26,14 +30,19 @@ export async function load({params}) {
 		}
 	});
   return {
-    animal
+    animal,
+    user
   };
 }
 
 export const actions = {
-  default: async({params}) => {
-    // Hardcoded for now
-    const fosterId = 1;
+  default: async({params, locals}) => {
+    if(!locals.user?.famille.id) {
+      return fail(400, {incorrect: true});
+    }
+
+    const fosterId = locals.user.famille.id;
+
     const animalId = Number(params.id);
 
     //TODO Fix formatting of Date

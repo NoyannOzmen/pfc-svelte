@@ -1,9 +1,11 @@
 import prisma from "$lib/prisma";
 import { fail, redirect } from "@sveltejs/kit";
 
-export async function load() {
-  // Hardcoded for now
-  const id = 2;
+export const load = async ({locals}) => {
+  if (!locals.user?.famille || !locals.user) {
+			throw redirect(302, "/");
+	}
+  const id = locals.user.id;
   const famille = await prisma.famille.findUniqueOrThrow({
     where : { utilisateur_id : id },
     include: {
@@ -15,12 +17,15 @@ export async function load() {
   return {
     famille
   };
-}
+};
 
 export const actions = {
-  update: async( {request}) => {
-    // Hardcoded for now
-    const id = 2;
+  update : async( {request, locals}) => {
+    if(!locals.user?.id) {
+			return fail(400, {incorrect: true});
+		}
+
+    const id = locals.user.id;
 
     const data = await request.formData();
     
@@ -82,9 +87,12 @@ export const actions = {
     throw redirect(303, "/famille/profil");
     
   },
-  delete : async() => {
-    // Hardcoded for now
-    const id = 2;
+  delete : async({locals}) => {
+    if(!locals.user?.id) {
+			return fail(400, {incorrect: true});
+		}
+
+    const id = locals.user.id;
 
     const currentFoster = await prisma.famille.findUniqueOrThrow({
       where : {

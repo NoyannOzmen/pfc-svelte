@@ -4,8 +4,8 @@
   let { data = $bindable(), form } = $props();
   let shelter = $derived(data.shelter);
 
-  function allowEdit(e) {
-    const field = e.currentTarget.closest('fieldset');
+  function allowEdit(e: MouseEvent | KeyboardEvent) {
+    const field = (e.currentTarget as HTMLSpanElement).closest('fieldset');
     const inputs = field?.querySelectorAll('input');
     const validate = document.getElementById('validateBtn');
     const area = field?.querySelector('textarea');
@@ -128,6 +128,21 @@
               id="responsable"
               name="responsable"
               defaultValue={shelter?.responsable}
+              disabled
+            />
+          </div>
+
+          <div class="mx-auto p-2">
+            <label class="text-center" for="email">
+              Email
+            </label>
+            <input
+              class="block w-full bg-fond"
+              type="email"
+              id="email"
+              name="email"
+              defaultValue={data.user?.email}
+              autoComplete="email"
               disabled
             />
           </div>

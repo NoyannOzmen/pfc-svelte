@@ -12,8 +12,8 @@
 
   let espece : string[] = []
 
-  function handleCheck(e) {
-    const { value, checked } = e.target;
+  function handleCheck(e : Event) {
+    const { value, checked } = e.target as HTMLInputElement;
     if (checked) {
       espece = [...espece, value];
     } else {
@@ -26,7 +26,6 @@
     filtered = shelters;
     const dptSelectSmall = document.getElementById('dpt-select-small') as HTMLInputElement;
 
-    console.log(dptSelectSmall.value);
     if (dptSelectSmall.value !== 'default') {
       filtered = shelters.filter(shelter =>
         shelter?.code_postal.toLowerCase().startsWith(dptSelectSmall.value.toLowerCase())

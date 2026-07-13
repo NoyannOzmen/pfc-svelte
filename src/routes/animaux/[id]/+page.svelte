@@ -6,6 +6,7 @@
 
   let { data = $bindable(), form } = $props();
   let animal = $derived(data.animal);
+  let user = $derived(data.user);
 </script>
 
 <div class="flex flex-wrap flex-col md:flex-row justify-self-stretch flex-1 w-full place-content-evenly 2xl:w-1/2 2xl:self-center">
@@ -13,7 +14,7 @@
     <h2 class="font-grands text-2xl md:text-3xl text-center w-full my-6">{animal.nom}</h2>
 
     <div class="font-body mx-auto w-[80%] bg-zoning rounded-lg shadow my-4">
-      {#if animal.images_animal.length}
+      {#if animal.images_animal && animal.images_animal.length}
         <img
           class="mx-auto my-2"
           src={`../src/lib/assets/${animal.images_animal[0].url}`}
@@ -63,7 +64,7 @@
           {animal.description}
         </p>
       </div>
-       <!-- {#if user.accueillant} -->
+        {#if user?.famille}
           <div class="text-center w-full py-2">
             {#if form?.message}
               <p class="font-grands text-accents1 text-center">{form.message}</p>
@@ -80,7 +81,7 @@
               </button>
             </form>
           </div>
-        <!-- {/if} -->
+        {/if}
     </article>
   </section>
 
@@ -95,7 +96,7 @@
       </h3>
 
       <div class="font-body mx-auto w-[80%] rounded-lg my-4">
-        {#if animal.refuge.images_association.length}
+        {#if animal.refuge.images_association && animal.refuge.images_association.length}
           <img
             class="mx-auto"
             src={`../src/lib/assets/${animal.refuge.images_association[0].url}`}
@@ -137,7 +138,7 @@
 
   <section class="p-4 py-6 block">
     <h2 class="font-grands text-3xl text-center my-2">
-      Ils vous attendent de patte ferme !
+      Ils vous attendent aussi chez {animal.refuge.nom} :
     </h2>
     <Carousel 
       animalId={animal.id}

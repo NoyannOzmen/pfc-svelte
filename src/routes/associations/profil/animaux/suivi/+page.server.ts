@@ -1,8 +1,13 @@
 import prisma from "$lib/prisma";
+import { redirect } from "@sveltejs/kit";
 
-export async function load() {
-  // Hardcoded for now
-  const shelterId = 1;
+export async function load({locals}) {
+	if (!locals.user?.association || !locals.user) {
+				throw redirect(302, "/");
+		}
+
+  const shelterId = locals.user.association.id;
+	
   const fostered = await prisma.animal.findMany({
     where : { association_id : shelterId, statut : 'Accueilli' },
 		include: {

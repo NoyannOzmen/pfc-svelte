@@ -5,7 +5,8 @@
   const url = animal.images_animal[0].url;
 
   function handleClick(e: MouseEvent) {
-    const fold = e.currentTarget.nextElementSibling;
+    const row = e.currentTarget as HTMLTableRowElement;
+    const fold = row.nextElementSibling;
     fold?.classList.toggle('hidden');
   }
 </script>
@@ -33,7 +34,7 @@
               {#if url}
                 <img
                   class="w-28 rounded-lg"
-                  src={`./src/lib/assets/${url}`}
+                  src={`../../../src/lib/assets/${url}`}
                   alt={`Photo de ${animal.nom}`}
                 />
               {:else}

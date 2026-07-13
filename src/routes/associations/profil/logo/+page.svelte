@@ -85,12 +85,12 @@
       </form>
     </section>
 
-    {#if shelter.images_association}
+    {#if shelter.images_association && shelter.images_association.length}
       <div class="flex flex-col justify-center">
         <h3 class="font-body text-2xl text-center">Votre Logo actuel</h3>
         <img
           class="w-[40%] mx-auto rounded-lg"
-          src={`./src/lib/assets/${shelter.images_association[0].url}`}
+          src={`../../../src/lib/assets/${shelter.images_association[0].url}`}
           alt=""
         />
       </div>

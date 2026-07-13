@@ -3,7 +3,7 @@ import { fail, redirect } from "@sveltejs/kit";
 import bcrypt from 'bcryptjs';
 
 export const actions = {
-  default: async( {request}) => {
+  default: async( {request} ) => {
     const data = await request.formData();
     
     const nom = data.get("nom");

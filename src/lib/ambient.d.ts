@@ -14,12 +14,12 @@ export interface ITag {
 }
 
 export interface IUtilisateur {
-  id: string;
+  id: number;
   email: string;
-  mot_de_passe: string;
-  role: string;
-  accueillant: Famille | null;
-  refuge: Association | null;
+  /* mot_de_passe: string;
+  role: string; */
+  famille: Famille | null;
+  association: Association | null;
 }
 
 export interface IFamille {

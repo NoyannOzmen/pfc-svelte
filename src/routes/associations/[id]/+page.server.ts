@@ -8,7 +8,8 @@ export async function load({params}) {
 			animal: {
         include: {
           espece: true,
-          refuge: true
+          refuge: true,
+          images_animal: true,
         }
       },
 			images_association: true

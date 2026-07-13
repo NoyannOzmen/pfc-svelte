@@ -1,7 +1,13 @@
 import prisma from "$lib/prisma";
+import { redirect } from "@sveltejs/kit";
 
-export async function load({params}) {
+export async function load({params, locals}) {
+  if (!locals.user?.association || !locals.user) {
+			throw redirect(302, "/");
+	}
+
   const id = Number(params.id);
+  
   const request = await prisma.demande.findUniqueOrThrow({
     where: { id : id },
 		include: {

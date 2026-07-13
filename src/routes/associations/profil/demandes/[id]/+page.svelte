@@ -59,10 +59,10 @@
           <h4 class="font-body font-bold text-center">Animal</h4>
           <div class="flex p-6 pb-4">
             <div class="flex flex-col gap-2">
-              {#if demande.animal.images_animal}
+              {#if demande.animal.images_animal && demande.animal.images_animal.length}
                 <img
                   class="w-28 rounded-lg"
-                  src={`./src/lib/assets/${demande.animal.images_animal[0].url}`}
+                  src={`../../../src/lib/assets/${demande.animal.images_animal[0].url}`}
                   alt={`Photo de ${demande.animal.nom}`}
                 />
               {:else}

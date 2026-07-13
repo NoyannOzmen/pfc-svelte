@@ -3,8 +3,8 @@
   let { data = $bindable(), form } = $props();
   let famille = $derived(data.famille);
 
-  function allowEdit(e) {
-    const field = e.currentTarget?.closest('fieldset');
+  function allowEdit(e: MouseEvent | KeyboardEvent) {
+    const field = (e.currentTarget as HTMLSpanElement).closest('fieldset');
     const inputs = field?.querySelectorAll('input');
     const validate = document.getElementById('validate');
 
@@ -112,7 +112,7 @@
               type="email"
               id="email"
               name="email"
-              // defaultValue={user.email}
+              defaultValue={data.user?.email}
               autoComplete="email"
               disabled
             />

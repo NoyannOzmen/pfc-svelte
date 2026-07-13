@@ -3,13 +3,14 @@
   import shelterEmpty from '$lib/assets/images/shelter_empty.webp'; 
   let { data = $bindable() } = $props();
   let shelter = $derived(data.shelter);
+  const available = $derived(shelter.animal.filter(({ statut }) => statut === 'En_refuge'));
 </script>
 
 <section class="flex flex-col mx-auto mt-2">
   <h2 class="font-grands text-2xl md:text-3xl text-center w-full my-6">{shelter.nom}</h2>
 
   <div class="font-body mx-auto w-[80%] rounded-lg my-1 justify-center flex">
-    {#if shelter.images_association.length}
+    {#if shelter.images_association && shelter.images_association.length}
       <img
         class="rounded-lg"
         src={`../src/lib/assets/${shelter.images_association[0].url}`}
@@ -62,11 +63,17 @@
 </section>
 
 <section class="p-2 block">
-  <h2 class="font-grands text-xl text-center my-2 md:md:text-2xl">
-    Ils vous attendent de patte ferme chez {shelter.nom} !
-  </h2>
-  <Carousel 
-    data={shelter.animal}
-    shelterId={shelter.id}
-  />
+  {#if available.length}
+    <h2 class="font-grands text-xl text-center my-2 md:md:text-2xl">
+      Ils vous attendent de patte ferme chez {shelter.nom} !
+    </h2>
+    <Carousel 
+      data={shelter.animal}
+      shelterId={shelter.id}
+    />
+    {:else}
+    <h2 class="font-grands text-xl text-center my-2 md:md:text-2xl">
+      {shelter.nom} ne propose pas d'animaux à l'adoption actuellement. Revenez plus tard !
+    </h2>
+    {/if}
 </section>

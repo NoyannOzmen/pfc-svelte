@@ -1,9 +1,14 @@
 import prisma from "$lib/prisma";
 import { fail, redirect } from "@sveltejs/kit";
 
-export async function load() {
-  // Hardcoded for now
-  const id = 1;
+export const load = async ({locals}) => {
+
+  if (!locals.user?.association || !locals.user) {
+			throw redirect(302, "/");
+	}
+
+  const id = locals.user.id;
+
   const shelter = await prisma.association.findUniqueOrThrow({
     where : { utilisateur_id : id },
     include: {
@@ -18,9 +23,12 @@ export async function load() {
 }
 
 export const actions = {
-  update: async( {request}) => {
-    // Hardcoded for now
-    const id = 2;
+  update: async({request, locals}) => {
+    if(!locals.user?.id) {
+			return fail(400, {incorrect: true});
+		}
+
+    const id = locals.user.id;
 
     const data = await request.formData();
     
@@ -105,9 +113,13 @@ export const actions = {
     throw redirect(303, "/associations/profil");
     
   },
-  delete : async() => {
-    // Hardcoded for now
-    const id = 2;
+  delete : async({locals}) => {
+
+    if(!locals.user?.id) {
+			return fail(400, {incorrect: true});
+		}
+
+    const id = locals.user.id;
 
     //TODO Add correct check for fostered animals && current requests
     const currentlyFostered = await prisma.association.findUniqueOrThrow({

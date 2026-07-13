@@ -1,7 +1,11 @@
 import prisma from "$lib/prisma";
+import { redirect } from "@sveltejs/kit";
 import { writeFile } from "node:fs/promises";
 
-export async function load({params}) {
+export async function load({params, locals}) {
+  if (!locals.user?.association || !locals.user) {
+      throw redirect(302, "/");
+  }
   const id = Number(params.id);
   const animal = await prisma.animal.findUniqueOrThrow({
     where: { id : id },
@@ -42,7 +46,7 @@ export const actions = {
     const id = Number(params.id);
 
     const formData = await request.formData();
-    const uploadedFile = formData?.get("file");
+    const uploadedFile = formData?.get("file") as File;
     const name = uploadedFile?.name;
     const filePath = `src/lib/assets/images/animaux/${name}`;
     await writeFile(filePath, Buffer.from(await uploadedFile?.arrayBuffer()));

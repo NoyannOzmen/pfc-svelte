@@ -3,7 +3,7 @@
   import animalEmpty from '$lib/assets/images/animal_empty.webp';
   let { data = $bindable(), /* form */ } = $props();
   let animal = $derived(data.animal);
-  const url = animal.images_animal[0].url;
+  const url = $derived(data.animal.images_animal[0].url);
 </script>
 
 <h2 class="font-grands text-3xl text-center my-2 pt-5">Mon espace association</h2>
@@ -65,7 +65,7 @@
             {#if url}
               <img
                 class="w-28 rounded-lg"
-                src={`./src/lib/assets/${url}`}
+                src={`../../../src/lib/assets/${url}`}
                 alt={`Photo de ${animal.nom}`}
               />
             {:else}
@@ -109,7 +109,7 @@
 
         {#if animal.animal_tag.length}
           <div class="flex flex-wrap mt-4 px-6 gap-1">
-              {#each animal.animal_tag as tag (tag.id)}
+              {#each animal.animal_tag as tag (tag.tag.id)}
                 <p class="group rounded-full block bg-accents1 text-fond text-center text-xs font-semibold py-1 px-2">
                   {tag.tag.nom}
                   <span class="group-hover:block hidden z-10 bg-accents2-dark text-fond absolute px-2 py-2 text-xs rounded-b-xl rounded-tr-xl">

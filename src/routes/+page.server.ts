@@ -1,6 +1,7 @@
 import prisma from "$lib/prisma";
 
-export async function load() {
+export async function load({locals}) {
+
   const animals = await prisma.animal.findMany({
 		include: {
 			refuge: true,
@@ -9,6 +10,7 @@ export async function load() {
 		}
 	});
   return {
+		user : locals.user,
     animals
   };
 }
