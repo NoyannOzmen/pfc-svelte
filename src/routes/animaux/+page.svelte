@@ -1,6 +1,7 @@
 <script lang='ts'>
   import DptSelect from '$lib/components/animals/dptSelect.svelte';
   import AnimalCard from '$lib/components/animals/animalCard.svelte';
+	import type { animal } from '../../generated/prisma/client.js';
 
   let { data = $bindable()} = $props();
 
@@ -108,25 +109,23 @@
       filtered = filtered.filter(animal => animal.age < Number(maxAge.value));
     }
 
-    //TODO Fix This
-    /* if (tag.length > 0) {
+    if (tag.length > 0) {
+      let tagFilteringArray: animal[] = [];
 
-      let tagFilteringArray = [];
-
-      filtered.forEach(animal =>
+      filtered.forEach(animal => {
         tag.forEach(identification => {
-          const found = animal.animal_tag.some((tag: { nom: string }) => tag.nom === identification);
-
+          const found = animal.animal_tag.some(tag => tag.tag.nom === identification);
+  
           if (!found && !tagFilteringArray.includes(animal)) {
             tagFilteringArray.push(animal);
           }
           if (found && tagFilteringArray.includes(animal)) {
             tagFilteringArray = tagFilteringArray.filter((a) => a !== animal);
-          }
+          }          
         })
-      );
-      filtered = tagFilteringArray;
-    } */
+      });
+      filtered = tagFilteringArray as typeof filtered;
+    }
 
     sheltered = filtered
   }

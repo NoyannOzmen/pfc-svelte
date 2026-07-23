@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import { enhance } from "$app/forms";
   let { data = $bindable(), /* form */} = $props();
 
@@ -103,7 +103,7 @@
               class="custom-select w-full rounded-md h-8 px-2 py-1 text-texte bg-fond "
             >
               <option value="Inconnu">Inconnu</option>
-              <option value="Mâle">Mâle</option>
+              <option value="Male">Mâle</option>
               <option value="Femelle">Femelle</option>
             </select>
           </div>
@@ -201,7 +201,7 @@
 
           <div class="mb-2 w-full">
             <p
-              id="couleur-animal"
+              id="tags-animal"
               class="block font-grands font-bold text-base mb-4 shrink"
             >
               Tags
@@ -217,7 +217,7 @@
                     <input
                       type="checkbox"
                       id={tag.nom}
-                      name={tag.nom}
+                      name="tags"
                       value={tag.id}
                       class="leading-3 size-6"
                     />

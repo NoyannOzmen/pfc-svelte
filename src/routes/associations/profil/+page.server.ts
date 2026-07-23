@@ -121,17 +121,39 @@ export const actions = {
 
     const id = locals.user.id;
 
-    //TODO Add correct check for fostered animals && current requests
-    const currentlyFostered = await prisma.association.findUniqueOrThrow({
+    // Checks if shelter has any fostered animal
+    const currentlyFostered = await prisma.association.findFirst({
       where : {
-        utilisateur_id : id
-      },
-      include: {
-        animal: true
+        AND: [
+          { utilisateur_id : id },
+          { animal: {
+            some: {
+              statut: "Accueilli",
+            }
+          }}
+        ]
       }
     });
 
-    if (currentlyFostered.animal.length) {
+    /* 
+    // Checks if any animals from this shelter are currently fostered
+    // Might be less efficient. More testing needed
+    const shelterId = locals.user.association.id;
+
+    const currentlyFostered = await prisma.animal.count({
+      where: {
+        AND : [
+          { association_id : shelterId },
+          { statut: 'Accueilli'}
+        ]
+      }
+    })
+
+    // Modify the following if block accordingly
+    if (currentlyFostered > 0) {
+    */
+
+    if (currentlyFostered) {
       return { message : "Certains de vos animaux sont actuellement accueillis. Veuillez prendre contact avec l'administrateur du site avant de supprimer votre compte !"};
     } else {
       const deleteFoster = prisma.association.delete({

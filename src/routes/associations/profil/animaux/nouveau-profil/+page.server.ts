@@ -1,7 +1,7 @@
 import prisma from "$lib/prisma";
 import { fail, redirect } from "@sveltejs/kit";
-import type { sexe } from "../../../../../../prisma/src/generated/prisma/enums.js";
-//TODO Correct this horrendous path
+import type { sexe } from "../../../../../generated/prisma/enums.ts";
+// Path is a bit hard to look at
 
 export async function load({locals}) {
 	if (!locals.user?.association|| !locals.user) {
@@ -33,17 +33,16 @@ export const actions = {
 		const race_animal = data.get("race_animal") || '';
 		const couleur_animal = data.get("couleur_animal");
 		const description_animal = data.get("description_animal");
-    /* const tags_animal = data.get("tags_animal") || []; */
+    const tags_animal = data.getAll("tags") || [];
 
     if (!nom_animal  || !sexe_animal || !age_animal || !espece_animal || !couleur_animal || !description_animal) {
       return fail(400, { nom_animal, sexe_animal, age_animal, espece_animal, couleur_animal, description_animal, missing: true });
     }
 
-		//TODO Add Tags back to typecheck
-    if (typeof nom_animal != "string" || typeof sexe_animal != "string" || typeof age_animal != "string" || typeof espece_animal != "string" || typeof couleur_animal != "string" || typeof description_animal != "string" || typeof race_animal != "string" || '' ) {
+    if (typeof nom_animal != "string" || typeof sexe_animal != "string" || typeof age_animal != "string" || typeof espece_animal != "string" || typeof couleur_animal != "string" || typeof description_animal != "string" || typeof race_animal != "string" || typeof tags_animal != "object") {
       return fail(400, { incorrect: true });
     }
-
+		
     const newAnimal = await prisma.animal.create({
       data: {
             nom : nom_animal,
@@ -53,11 +52,27 @@ export const actions = {
 						race:	race_animal || '',
 						couleur : couleur_animal,
 						description: description_animal,
-						/* tags: tags_animal, */
 						association_id : shelterId,
 						statut: "En_refuge"
         }
     });
+
+
+		tags_animal.forEach((tag: FormDataEntryValue) => {
+			assignTag(tag)
+		});
+
+				
+		async function assignTag(tag : FormDataEntryValue) {
+			const newAnimalTag = await prisma.animal_tag.create({
+				data : {
+					animal_id : newAnimal.id,
+					tag_id: Number(tag)
+				}
+			})
+
+			return newAnimalTag;
+		};
 
     console.log(newAnimal)
   },

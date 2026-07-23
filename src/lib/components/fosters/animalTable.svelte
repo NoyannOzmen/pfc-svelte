@@ -44,7 +44,7 @@
   </tr>
   <tr class="text-sm font-body font-semibold bg bg-fond hidden">
     <td colSpan="2">{animal.refuge.nom}</td>
-    <td colSpan="2">{animal.demande[0].date_debut}</td>
+    <td colSpan="2">{animal.demande[0].date_debut.toLocaleDateString()}</td>
     <td colSpan="2">{animal.demande[0].statut_demande}</td>
   </tr>
 </tbody>

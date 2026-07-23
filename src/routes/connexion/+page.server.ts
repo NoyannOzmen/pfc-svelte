@@ -74,7 +74,6 @@ export const actions = {
 
     throw redirect(302, "/")
   },
-  //TODO Delete token when user closes window without logging out
   logout: async ({cookies, locals}) => {
     cookies.delete("AuthorizationToken", { path : "/"});
     locals.user = null;

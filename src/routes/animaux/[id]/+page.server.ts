@@ -45,10 +45,9 @@ export const actions = {
 
     const animalId = Number(params.id);
 
-    //TODO Fix formatting of Date
     const now = new Date();
-    const date_debut = now/* .toLocaleDateString() */;
-    const date_fin = new Date(now.getTime() + (1000 * 60 * 60 * 24 * 30))/* .toLocaleDateString() */;
+    const date_debut = now;
+    const date_fin = new Date(now.getTime() + (1000 * 60 * 60 * 24 * 30));
 
     const existing = await prisma.demande.findFirst({
       where : { animal_id : animalId, famille_id : fosterId}

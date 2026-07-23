@@ -49,7 +49,7 @@
     <tr
       class={'fold text-sm font-body font-semibold hidden ' + (index % 2 > 0 ? 'text-fond bg-accents2-light' : 'bg bg-fond') }>
       <td colSpan="2">{demande.famille.nom}</td>
-      <td colSpan="2">{demande.date_debut}</td>
+      <td colSpan="2">{demande.date_debut.toLocaleDateString()}</td>
       <td colSpan="2">
         <a
           tabindex="0"

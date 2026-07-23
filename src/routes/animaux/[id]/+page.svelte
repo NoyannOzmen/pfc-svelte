@@ -30,10 +30,10 @@
           A propos de {animal.nom}
         </h3>
       </div>
-      <!-- TODO - Fix Syntax of Tag display -->
+
       <div class="text-center w-full py-2">
         {#each animal.animal_tag as tag (tag.tag.id)}
-          <button class="group p-1 rounded-lg bg-accents1-dark text-fond text-center">
+          <button class="group mx-1 p-1 rounded-lg bg-accents1-dark text-fond text-center">
             {tag.tag.nom}
             <span class="group-hover:block hidden z-10 bg-accents2-dark text-fond absolute px-2 py-2 text-xs rounded-b-xl rounded-tr-xl">
               {tag.tag.description}

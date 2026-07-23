@@ -1,6 +1,7 @@
 <script lang='ts'>
   import DptSelect from '$lib/components/animals/dptSelect.svelte';
   import ShelterCard from '$lib/components/shelters/shelterCard.svelte';
+	import type { association } from '../../generated/prisma/client.js';
   let { data = $bindable()} = $props();
 
   // Displays only shelters with animals up for adoption
@@ -55,24 +56,24 @@
         shelter.nom.toLowerCase().includes(shelterNom.value.toLowerCase())
       );
     }
-    //TODO Fix this
-    /* if (espece.length > 0) {
-      let filteringArray = [];
+
+    if (espece.length > 0) {
+      let filteringArray: association[] = [];
 
       filtered.forEach(shelter =>
         espece.forEach(identification => {
-          const found = shelter.pensionnaires.find(animal => animal.espece.nom === identification);
+          const found = shelter.animal.some(animal => animal.espece.nom === identification);
 
           if (found && !filteringArray.includes(shelter)) {
             filteringArray.push(shelter);
           }
           if (!found && filteringArray.includes(shelter)) {
-            filteringArray = filteringArray.filter((a: IAssociation) => a !== shelter);
+            filteringArray = filteringArray.filter((a) => a !== shelter);
           }
         })
       );
-      filtered = filteringArray;
-    } */
+      filtered = filteringArray as typeof filtered;
+    }
 
     shelters = filtered;
   }
