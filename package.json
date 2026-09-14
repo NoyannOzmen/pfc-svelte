@@ -48,8 +48,12 @@
 		"pg": "^8.21.0"
 	},
 	"overrides": {
+		"@prisma/config": {
+			"deepmerge-ts": ">=8.0.0"
+		},
 		"prisma": {
-			"@hono/node-server": ">=1.19.13"
+			"@hono/node-server": ">=1.19.13",
+			"mysql2": ">=3.22.0"
 		},
 		"@sveltejs/kit": {
 			"cookie": ">=0.7.0"
