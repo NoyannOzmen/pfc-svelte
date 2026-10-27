@@ -4,7 +4,7 @@
 </script>
 
 <section
-	class="flex flex-col h-[80%] bg-right bg-cover place-content-center bg-[url($lib/assets/images/unai.webp)]"
+	class="flex flex-col h-[80%] bg-right bg-cover place-content-center bg-[url(src/lib/assets/images/unai.webp)]"
 >
 	<div class="flex flex-col rounded-2xl bg-texte/35 py-10 m-6 max-w-4xl">
 		<h2 class="stroke-title font-grands px-12 text-5xl">
