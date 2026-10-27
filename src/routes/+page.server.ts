@@ -1,16 +1,15 @@
-import prisma from "$lib/prisma";
+import prisma from '$lib/prisma';
 
-export async function load({locals}) {
-
-  const animals = await prisma.animal.findMany({
+export async function load({ locals }) {
+	const animals = await prisma.animal.findMany({
 		include: {
 			refuge: true,
 			images_animal: true,
-			espece: true,
+			espece: true
 		}
 	});
-  return {
-		user : locals.user,
-    animals
-  };
+	return {
+		user: locals.user,
+		animals
+	};
 }

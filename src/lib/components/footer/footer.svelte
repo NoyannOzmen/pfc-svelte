@@ -3,12 +3,11 @@
 </script>
 
 <div class="flex-none">
-	<a href="#top" class="to-top mb-12 mr-1 flex flex-col text-xs font-bold text-accents1-light opacity-75">
-		<img
-			class="size-8 place-self-center"
-			src={top}
-			alt="icone de retour vers le haut"
-		/>
+	<a
+		href="#top"
+		class="to-top mb-12 mr-1 flex flex-col text-xs font-bold text-accents1-light opacity-75"
+	>
+		<img class="size-8 place-self-center" src={top} alt="icone de retour vers le haut" />
 		<p class="to-top-text text-center">
 			Haut<br />de page
 		</p>

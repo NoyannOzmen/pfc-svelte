@@ -22,12 +22,12 @@ PFC a pour vocation de répondre à plusieurs besoins :
 
 Pour réaliser cette application, nous nous sommes servis de :
 
-|   **Nom**      |     **Fonction**   |
-| -------------- | ----------------- |
-| SvelteKit | Framework |
-| TypeScript | Langage |
-| Tailwind | CSS |
-| Prisma | ORM |
+| **Nom**    | **Fonction** |
+| ---------- | ------------ |
+| SvelteKit  | Framework    |
+| TypeScript | Langage      |
+| Tailwind   | CSS          |
+| Prisma     | ORM          |
 
 ## Installation
 

@@ -9,7 +9,7 @@
 
 <svelte:head>
 	<meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta
 		name="description"
 		content="Pet Foster Connect, mise en relations entre refuges de protection animale et familles d'accueil"
@@ -24,8 +24,10 @@
 
 <Header user={data?.user} />
 
-<main class="w-screen min-h-screen h-full font-body flex flex-col bg-fond justify-self-stretch flex-1">
+<main
+	class="w-screen min-h-screen h-full font-body flex flex-col bg-fond justify-self-stretch flex-1"
+>
 	{@render children()}
 </main>
 
-<Footer/>
+<Footer />

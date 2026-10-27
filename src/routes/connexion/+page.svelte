@@ -1,60 +1,54 @@
-<script lang='ts'>
-  import { enhance } from "$app/forms";
-  let { form } = $props();
+<script lang="ts">
+	import { enhance } from '$app/forms';
+	let { form } = $props();
 </script>
 
 <h2 class="font-grands text-3xl text-center my-2 pt-10">Connexion</h2>
 
 <section class="pt-10">
-  <div class="font-body mx-auto w-[80%] md:w-[60%] bg-zoning rounded-lg shadow">
-    <form
-      class="flex flex-col flex-wrap justify-around text-texte"
-      method="POST"
-      action="?/login"
-      use:enhance
-    >
-      <div class="mx-auto p-2 w-[60%]">
-        <label class="text-center" for="email">
-          Votre e-mail
-        </label>
-        <input
-          class="block bg-fond w-full"
-          type="email"
-          placeholder="jo.jo@morioh.io"
-          name="email"
-          id="email"
-          autoComplete="email"
-          required
-        />
-      </div>
-      <div class="mx-auto p-2 w-[60%]">
-        <label class="text-center" for="mot_de_passe">
-          Votre mot de passe
-        </label>
-        <input
-          
-          class="block bg-fond w-full"
-          type="password"
-          placeholder="********"
-          name="mot_de_passe"
-          id="mot_de_passe"
-          autocomplete="current-password"
-          required
-        />
-      </div>
-      <button
-        class="w-[60%] mx-auto my-3 py-2 px-4 bg-accents1-light text-fond transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
-        type="submit"
-      >
-        Se connecter
-      </button>
-    </form>
-    
-    {#if form?.message}
-      <div>
-        <p class="font-grands text-accents1 text-center">{form.message}</p>
-      </div>
-    {/if}
-   
-  </div>
+	<div class="font-body mx-auto w-[80%] md:w-[60%] bg-zoning rounded-lg shadow">
+		<form
+			class="flex flex-col flex-wrap justify-around text-texte"
+			method="POST"
+			action="?/login"
+			use:enhance
+		>
+			<div class="mx-auto p-2 w-[60%]">
+				<label class="text-center" for="email"> Votre e-mail </label>
+				<input
+					class="block bg-fond w-full"
+					type="email"
+					placeholder="jo.jo@morioh.io"
+					name="email"
+					id="email"
+					autoComplete="email"
+					required
+				/>
+			</div>
+			<div class="mx-auto p-2 w-[60%]">
+				<label class="text-center" for="mot_de_passe"> Votre mot de passe </label>
+				<input
+					class="block bg-fond w-full"
+					type="password"
+					placeholder="********"
+					name="mot_de_passe"
+					id="mot_de_passe"
+					autocomplete="current-password"
+					required
+				/>
+			</div>
+			<button
+				class="w-[60%] mx-auto my-3 py-2 px-4 bg-accents1-light text-fond transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+				type="submit"
+			>
+				Se connecter
+			</button>
+		</form>
+
+		{#if form?.message}
+			<div>
+				<p class="font-grands text-accents1 text-center">{form.message}</p>
+			</div>
+		{/if}
+	</div>
 </section>
