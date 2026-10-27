@@ -1,5 +1,5 @@
 import prisma from '$lib/prisma';
-import { JWT_SECRET } from '$env/static/private';
+import { JWT_SECRET } from '$app/env/private';
 import jwt, { type JwtPayload } from 'jsonwebtoken';
 
 interface IJwtPayload extends JwtPayload {

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET } from '$env/static/private';
+import { JWT_SECRET } from '$app/env/private';
 import prisma from '$lib/prisma';
 import { fail, redirect } from '@sveltejs/kit';
 import bcrypt from 'bcryptjs';
@@ -24,11 +24,8 @@ export const actions = {
 		}
 
 		const user = await prisma.utilisateur.findUnique({
-			where: { email: email },
-			include: {
-				association: true,
-				famille: true
-			}
+			where: { email },
+			include: { association: true, famille: true }
 		});
 
 		if (!user) {
