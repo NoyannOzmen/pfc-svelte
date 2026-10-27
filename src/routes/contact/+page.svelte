@@ -1,5 +1,5 @@
 <script>
-	import shelter_empty from '$lib/assets/images/shelter_empty.webp';
+	import shelter_empty from '#lib/assets/images/shelter_empty.webp';
 </script>
 
 <h2 class="font-grands text-3xl text-center my-2 pt-5">Nous contacter</h2>

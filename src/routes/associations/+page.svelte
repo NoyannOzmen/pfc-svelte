@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DptSelect from '$lib/components/animals/dptSelect.svelte';
-	import ShelterCard from '$lib/components/shelters/shelterCard.svelte';
+	import DptSelect from '#lib/components/animals/dptSelect.svelte';
+	import ShelterCard from '#lib/components/shelters/shelterCard.svelte';
 	import type { association } from '../../generated/prisma/client.js';
 	let { data = $bindable() } = $props();
 

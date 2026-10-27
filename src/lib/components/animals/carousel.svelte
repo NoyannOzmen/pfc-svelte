@@ -1,7 +1,7 @@
 <script lang="ts">
-	import animalEmpty from '$lib/assets/images/animal_empty.webp';
-	import left from '$lib/assets/icons/left.svg';
-	import right from '$lib/assets/icons/right.svg';
+	import animalEmpty from '#lib/assets/images/animal_empty.webp';
+	import left from '#lib/assets/icons/left.svg';
+	import right from '#lib/assets/icons/right.svg';
 	let innerWidth = $state(0);
 
 	let { data = $bindable(), animalId = $bindable(), shelterId = $bindable() } = $props();

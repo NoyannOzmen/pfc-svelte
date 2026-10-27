@@ -1,5 +1,5 @@
 <script>
-	import Carousel from '$lib/components/animals/carousel.svelte';
+	import Carousel from '#lib/components/animals/carousel.svelte';
 	let { data } = $props();
 </script>
 

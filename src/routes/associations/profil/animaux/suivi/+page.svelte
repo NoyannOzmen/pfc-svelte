@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ShelterResidentTable from '$lib/components/shelters/shelterResidentTable.svelte';
+	import ShelterResidentTable from '#lib/components/shelters/shelterResidentTable.svelte';
 
 	let { data = $bindable() } = $props();
 	const fostered = $derived(data.fostered);

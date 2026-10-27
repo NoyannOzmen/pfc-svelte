@@ -1,4 +1,4 @@
-import prisma from '$lib/prisma';
+import prisma from '#lib/prisma.js';
 import { fail, redirect } from '@sveltejs/kit';
 import type { sexe } from '../../../../../generated/prisma/enums.ts';
 // Path is a bit hard to look at

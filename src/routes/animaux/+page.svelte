@@ -1,6 +1,6 @@
 <script lang="ts">
-	import DptSelect from '$lib/components/animals/dptSelect.svelte';
-	import AnimalCard from '$lib/components/animals/animalCard.svelte';
+	import DptSelect from '#lib/components/animals/dptSelect.svelte';
+	import AnimalCard from '#lib/components/animals/animalCard.svelte';
 	import type { animal } from '../../generated/prisma/client.js';
 
 	let { data = $bindable() } = $props();

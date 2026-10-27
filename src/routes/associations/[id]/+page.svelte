@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Carousel from '$lib/components/animals/carousel.svelte';
-	import shelterEmpty from '$lib/assets/images/shelter_empty.webp';
+	import Carousel from '#lib/components/animals/carousel.svelte';
+	import shelterEmpty from '#lib/assets/images/shelter_empty.webp';
 	let { data = $bindable() } = $props();
 	let shelter = $derived(data.shelter);
 	const available = $derived(shelter.animal.filter(({ statut }) => statut === 'En_refuge'));

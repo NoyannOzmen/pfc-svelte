@@ -55,5 +55,9 @@
 			"@hono/node-server": ">=1.19.13",
 			"mysql2": ">=3.22.0"
 		}
+	},
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
 	}
 }

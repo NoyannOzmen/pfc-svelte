@@ -1,5 +1,5 @@
 <script>
-	import top from '$lib/assets/icons/top.svg';
+	import top from '#lib/assets/icons/top.svg';
 </script>
 
 <div class="flex-none">

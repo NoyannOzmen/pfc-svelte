@@ -1,4 +1,4 @@
-import prisma from '$lib/prisma';
+import prisma from '#lib/prisma.js';
 import { fail, redirect } from '@sveltejs/kit';
 import { writeFile } from 'node:fs/promises';
 

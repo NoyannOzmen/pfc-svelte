@@ -1,6 +1,6 @@
 // See https://svelte.dev/docs/kit/types#app.d.ts
 
-import type { IUtilisateur } from '$lib/ambient';
+import type { IUtilisateur } from '#lib/ambient';
 
 // for information about these interfaces
 declare global {

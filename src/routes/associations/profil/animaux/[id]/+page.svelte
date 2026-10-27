@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import animalEmpty from '$lib/assets/images/animal_empty.webp';
+	import animalEmpty from '#lib/assets/images/animal_empty.webp';
 	let { data = $bindable() /* form */ } = $props();
 	let animal = $derived(data.animal);
 	const url = $derived(data.animal.images_animal[0].url);

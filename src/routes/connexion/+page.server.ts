@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from '$app/env/private';
-import prisma from '$lib/prisma';
+import prisma from '#lib/prisma.js';
 import { fail, redirect } from '@sveltejs/kit';
 import bcrypt from 'bcryptjs';
 

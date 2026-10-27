@@ -1,6 +1,6 @@
 <script lang="ts">
 	let { shelter = $bindable() } = $props();
-	import shelterEmpty from '$lib/assets/images/shelter_empty.webp';
+	import shelterEmpty from '#lib/assets/images/shelter_empty.webp';
 </script>
 
 <div class="bg-zoning rounded-lg shadow flex flex-col">

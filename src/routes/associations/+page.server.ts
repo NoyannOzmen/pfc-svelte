@@ -1,4 +1,4 @@
-import prisma from '$lib/prisma';
+import prisma from '#lib/prisma.js';
 
 export async function load() {
 	const shelters = await prisma.association.findMany({

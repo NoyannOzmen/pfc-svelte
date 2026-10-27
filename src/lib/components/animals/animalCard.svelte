@@ -1,6 +1,6 @@
 <script lang="ts">
 	let { animal = $bindable() } = $props();
-	import animalEmpty from '$lib/assets/images/animal_empty.webp';
+	import animalEmpty from '#lib/assets/images/animal_empty.webp';
 </script>
 
 <div class="bg-zoning rounded-lg shadow md:flex-col">

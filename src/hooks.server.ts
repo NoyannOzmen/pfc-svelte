@@ -1,4 +1,4 @@
-import prisma from '$lib/prisma';
+import prisma from '#lib/prisma.js';
 import { JWT_SECRET } from '$app/env/private';
 import jwt, { type JwtPayload } from 'jsonwebtoken';
 

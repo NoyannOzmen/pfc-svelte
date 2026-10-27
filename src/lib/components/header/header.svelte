@@ -17,7 +17,7 @@
 		navMenu?.classList.remove('active');
 	}
 
-	import logo from '$lib/assets/icons/logo.svg';
+	import logo from '#lib/assets/icons/logo.svg';
 	let { user = $bindable() } = $props();
 </script>
 

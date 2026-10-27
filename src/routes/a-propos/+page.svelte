@@ -1,7 +1,7 @@
 <script>
-	import img404 from '$lib/assets/images/404.webp';
-	import unai from '$lib/assets/images/unai.webp';
-	import logo from '$lib/assets/icons/logo.svg';
+	import img404 from '#lib/assets/images/404.webp';
+	import unai from '#lib/assets/images/unai.webp';
+	import logo from '#lib/assets/icons/logo.svg';
 </script>
 
 <article class="flex flex-col p-2 lg:p-32 mx-auto">

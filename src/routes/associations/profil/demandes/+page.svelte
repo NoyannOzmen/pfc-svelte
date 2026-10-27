@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ShelterRequestTable from '$lib/components/shelters/shelterRequestTable.svelte';
+	import ShelterRequestTable from '#lib/components/shelters/shelterRequestTable.svelte';
 
 	let { data = $bindable() } = $props();
 	let requested = $derived(data.requested);

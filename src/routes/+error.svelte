@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import errorImage from '$lib/assets/images/404.webp';
-	import logo from '$lib/assets/icons/logo.svg';
+	import errorImage from '#lib/assets/images/404.webp';
+	import logo from '#lib/assets/icons/logo.svg';
 </script>
 
 <div class="my-12 flex items-center justify-center">

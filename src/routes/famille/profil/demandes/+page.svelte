@@ -1,5 +1,5 @@
 <script lang="ts">
-	import AnimalTable from '$lib/components/fosters/animalTable.svelte';
+	import AnimalTable from '#lib/components/fosters/animalTable.svelte';
 	let { data = $bindable() } = $props();
 	let requestedAnimals = $derived(data.animals);
 </script>

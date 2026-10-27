@@ -1,5 +1,5 @@
 <script lang="ts">
-	import animalEmpty from '$lib/assets/images/animal_empty.webp';
+	import animalEmpty from '#lib/assets/images/animal_empty.webp';
 	let { data = $bindable() } = $props();
 	let species = $derived(data.species);
 	let sheltered = $derived(data.shelter.animal);

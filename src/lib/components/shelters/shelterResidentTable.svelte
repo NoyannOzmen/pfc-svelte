@@ -1,5 +1,5 @@
 <script lang="ts">
-	import animalEmpty from '$lib/assets/images/animal_empty.webp';
+	import animalEmpty from '#lib/assets/images/animal_empty.webp';
 
 	let { animal = $bindable() } = $props();
 	const url = animal.images_animal[0].url;

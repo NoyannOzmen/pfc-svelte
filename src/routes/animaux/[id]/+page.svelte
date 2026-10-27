@@ -1,7 +1,7 @@
 <script lang="ts">
-	import shelterEmpty from '$lib/assets/images/shelter_empty.webp';
-	import animalEmpty from '$lib/assets/images/animal_empty.webp';
-	import Carousel from '$lib/components/animals/carousel.svelte';
+	import shelterEmpty from '#lib/assets/images/shelter_empty.webp';
+	import animalEmpty from '#lib/assets/images/animal_empty.webp';
+	import Carousel from '#lib/components/animals/carousel.svelte';
 	import { enhance } from '$app/forms';
 
 	let { data = $bindable(), form } = $props();
